@@ -1,27 +1,35 @@
-//your JS code here. If required.
+function processData(array) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(array);
+    }, 3000);
+  });
+}
 
-	let promise1 =(arr)=>{
-		return new Promise((res,rej)=>{
-		setTimeout(()=>{
-			let res = arr.filter(item => item%2 == 0);
-			res(res);
-		},1000)
-	})
-	} 
+function filterOddNumbers(array) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const filteredArray = array.filter(num => num % 2 === 0);
+      resolve(filteredArray);
+    }, 1000);
+  });
+}
 
+function multiplyEvenNumbers(array) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const multipliedArray = array.map(num => (num % 2 === 0) ? num * 2 : num);
+      resolve(multipliedArray);
+    }, 2000);
+  });
+}
 
-	let promise2 =(data)=>{
-		new Promise((res,rej)=>{
-		setTimeout(()=>{
-			let res = arr.map(item => item*2);
-			res(res);
-		},1000)
-	})
-	} 
-promise1().than((data)=>{
-	console.log(data)
-	return promise2(data);
-}).than((data)=>{
-	console.log(data)
-})
+const inputArray = [1, 2, 3, 4];
 
+processData(inputArray)
+  .then(filteredArray => filterOddNumbers(filteredArray))
+  .then(multipliedArray => multiplyEvenNumbers(multipliedArray))
+  .then(finalArray => {
+    const outputDiv = document.getElementById('output');
+    outputDiv.textContent = finalArray.join(', ');
+  });
