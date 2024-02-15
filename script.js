@@ -13,7 +13,7 @@
 	let promise2 =(data)=>{
 		new Promise((res,rej)=>{
 		setTimeout(()=>{
-			let res = arr.filter(item => item%2 == 0);
+			let res = arr.map(item => item*2);
 			res(res);
 		},1000)
 	})
