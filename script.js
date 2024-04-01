@@ -31,5 +31,5 @@ processData(inputArray)
   .then(multipliedArray => multiplyEvenNumbers(multipliedArray))
   .then(finalArray => {
     const outputDiv = document.getElementById('output');
-    outputDiv.innerText = finalArray
+    outputDiv.innerText = finalArray.join(',')
   });
