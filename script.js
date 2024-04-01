@@ -18,7 +18,7 @@ function filterOddNumbers(array) {
 function multiplyEvenNumbers(array) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const multipliedArray = array.map(num => (num % 2 === 0) ? num * 2 : num);
+      const multipliedArray = array.map(num => (num % 2 === 0) ? num  : num);
       resolve(multipliedArray);
     }, 2000);
   });
